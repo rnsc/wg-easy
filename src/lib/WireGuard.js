@@ -205,7 +205,7 @@ AllowedIPs = ${client.address}/32, ${client.address6}/128`;
     const config = await this.getConfig();
     const client = await this.getClient({ clientId });
     const isDnsSet = WG_DEFAULT_DNS || WG_DEFAULT_DNS6;
-    const dnsServers = [WG_DEFAULT_DNS, WG_DEFAULT_DNS6].filter(item => !!item).join(', ')
+    const dnsServers = [WG_DEFAULT_DNS, WG_DEFAULT_DNS6].filter(item => !!item).join(', ');
 
     return `
 [Interface]
@@ -345,7 +345,7 @@ Endpoint = ${WG_HOST}:${WG_PORT}`;
 
     await this.saveConfig();
   }
-  
+
   async updateClientAddress6({ clientId, address6 }) {
     const client = await this.getClient({ clientId });
 
